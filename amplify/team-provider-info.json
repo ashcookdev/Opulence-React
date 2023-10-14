@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-opulence-staging-32438-authRole",
+      "UnauthRoleArn": "arn:aws:iam::303824611805:role/amplify-opulence-staging-32438-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::303824611805:role/amplify-opulence-staging-32438-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-opulence-staging-32438-deployment",
+      "UnauthRoleName": "amplify-opulence-staging-32438-unauthRole",
+      "StackName": "amplify-opulence-staging-32438",
+      "StackId": "arn:aws:cloudformation:eu-west-2:303824611805:stack/amplify-opulence-staging-32438/b58ea420-67e5-11ee-b708-064b471303dc",
+      "AmplifyAppId": "d13v4serpz4tqs"
+    },
+    "categories": {
+      "auth": {
+        "Opulence": {}
+      }
+    }
+  }
+}
