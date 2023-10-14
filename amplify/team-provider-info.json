@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "Opulence": {}
+      },
+      "storage": {
+        "s3opulencestoraged1d95e15": {}
       }
     }
   }
