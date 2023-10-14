@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3opulencestoraged1d95e15",
+  "bucketName": "opulence-storage-d1d95e15",
+  "policyUUID": "c59b3f94",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ",
+    "CREATE_AND_UPDATE"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ]
+}

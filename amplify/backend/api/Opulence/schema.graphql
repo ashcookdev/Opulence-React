@@ -1,0 +1,29 @@
+type Location @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Location: String
+  Time: String
+  Date: String
+  Available: Boolean
+}
+
+type Bookings @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Email: String
+  Location: String
+  Time: String
+  Paid: String
+  Price: String
+  Treatment: String
+}
+
+type Products @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Category: String
+  Name: String
+  Price: String
+  StripeID: String
+  ImageSrc: String
+  href: String
+}
+ 
