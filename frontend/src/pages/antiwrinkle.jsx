@@ -29,6 +29,8 @@ export default function LipFiller() {
 
   const fetchImage = async (products) => {
 
+    console.log(products)
+
     try {
       const imageData = await Storage.get(products.ImageSrc)
 setImageUrl(imageData)    

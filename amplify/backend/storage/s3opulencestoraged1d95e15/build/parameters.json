@@ -1,0 +1,34 @@
+{
+  "bucketName": "opulence-storage-d1d95e15",
+  "selectedGuestPermissions": [
+    "s3:GetObject",
+    "s3:ListBucket",
+    "s3:PutObject"
+  ],
+  "selectedAuthenticatedPermissions": [
+    "s3:PutObject",
+    "s3:GetObject",
+    "s3:ListBucket"
+  ],
+  "unauthRoleName": {
+    "Ref": "UnauthRoleName"
+  },
+  "authRoleName": {
+    "Ref": "AuthRoleName"
+  },
+  "s3PrivatePolicy": "Private_policy_c59b3f94",
+  "s3ProtectedPolicy": "Protected_policy_c59b3f94",
+  "s3PublicPolicy": "Public_policy_c59b3f94",
+  "s3ReadPolicy": "read_policy_c59b3f94",
+  "s3UploadsPolicy": "Uploads_policy_c59b3f94",
+  "authPolicyName": "s3_amplify_c59b3f94",
+  "unauthPolicyName": "s3_amplify_c59b3f94",
+  "AuthenticatedAllowList": "ALLOW",
+  "GuestAllowList": "ALLOW",
+  "s3PermissionsAuthenticatedPrivate": "s3:PutObject,s3:GetObject",
+  "s3PermissionsAuthenticatedProtected": "s3:PutObject,s3:GetObject",
+  "s3PermissionsAuthenticatedPublic": "s3:PutObject,s3:GetObject",
+  "s3PermissionsAuthenticatedUploads": "s3:PutObject",
+  "s3PermissionsGuestPublic": "s3:GetObject,s3:PutObject",
+  "s3PermissionsGuestUploads": "s3:PutObject"
+}

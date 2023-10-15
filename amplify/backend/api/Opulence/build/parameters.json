@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "Opulence",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-opulence-staging-32438-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/1a9bbba3681a6c0afa84c61d70fb875d5b750687"
+}

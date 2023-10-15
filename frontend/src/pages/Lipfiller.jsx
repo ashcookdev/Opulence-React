@@ -38,13 +38,15 @@ export default function LipFiller() {
   useEffect(() => {
     products.forEach(product => fetchImage(product));
   }, [products]);
+
+  console.log(products.id)
   
   const fetchImage = async (product) => {
     try {
       const imageData = await Storage.get(product.ImageSrc);
       setImageUrl(prevState => ({
         ...prevState,
-        [product.id]: imageData
+        [product.ImageSrc]: imageData
       }));
     } catch (error) {
       console.log("Error fetching image", error);
