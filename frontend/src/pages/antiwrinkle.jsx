@@ -31,7 +31,8 @@ export default function LipFiller() {
 
     try {
       const imageData = await Storage.get(products.ImageSrc)
-setImageUrl(imageData)    }
+setImageUrl(imageData)    
+console.log(imageData)}
 
     catch (error) {
       console.log("Error fetching image", error)
