@@ -15,7 +15,7 @@ export default function Example() {
             <div className="relative flex h-16 justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-green-400 hover:bg-green-100 hover:text-green-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -29,51 +29,51 @@ export default function Example() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="Opulence.PNG"
                     alt="Your Company"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                  {/* Current: "border-indigo-500 text-green-900", Default: "border-transparent text-green-800 hover:border-green-800 hover:text-green-800" */}
                   <a
                     href="/"
-                    className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
+                    className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-green-900"
                   >
                     Home
                   </a>
                   <a
                     href="./lipfiller"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-green-800 hover:border-green-800 hover:text-green-800"
                   >
                     Lip Filler
                   </a>
                   <a
                     href="./face"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-green-800 hover:border-green-800 hover:text-green-800"
                   >
                     Face
                   </a>
                   <a
                     href="./antiwrinkle"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-green-800 hover:border-green-800 hover:text-green-800"
                   >
                     Anti-Wrinkle
                   </a>
                   <a
                     href="./antiwrinkleinjections"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-green-800 hover:border-green-800 hover:text-green-800"
                   >
                     Anti-Wrinkle Injections
                   </a>
                     <a
                     href="./fatdissolving"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-green-800 hover:border-green-800 hover:text-green-800"
                     >
                     Fat Dissolving
                     </a>
                     <a
                     href="./packages"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-green-800 hover:border-green-800 hover:text-green-800"
                     >
                     Packages
                     </a>
@@ -84,7 +84,7 @@ export default function Example() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="relative rounded-full bg-white p-1 text-green-400 hover:text-green-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
@@ -99,7 +99,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src="Opulence.PNG"
                         alt=""
                       />
                     </Menu.Button>
@@ -118,7 +118,7 @@ export default function Example() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-green-100' : '', 'block px-4 py-2 text-sm text-green-800')}
                           >
                             Your Profile
                           </a>
@@ -128,7 +128,7 @@ export default function Example() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-green-100' : '', 'block px-4 py-2 text-sm text-green-800')}
                           >
                             Settings
                           </a>
@@ -138,7 +138,7 @@ export default function Example() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-green-100' : '', 'block px-4 py-2 text-sm text-green-800')}
                           >
                             Sign out
                           </a>
@@ -153,7 +153,7 @@ export default function Example() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pb-4 pt-2">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-green-800 hover:bg-green-50 hover:border-green-800 hover:text-green-800" */}
               <Disclosure.Button
                 as="a"
                 href="#"
@@ -164,42 +164,42 @@ export default function Example() {
               <Disclosure.Button
                 as="a"
                 href="./lipfiller"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-green-800 hover:border-green-800 hover:bg-green-50 hover:text-green-800"
               >
                 Lip Filler
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="/face"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-green-800 hover:border-green-800 hover:bg-green-50 hover:text-green-800"
               >
                 Face
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="./antiwrinkle"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-green-800 hover:border-green-800 hover:bg-green-50 hover:text-green-800"
               >
                 Anti-Wrinkle
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="./antiwrinkleinjections"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-green-800 hover:border-green-800 hover:bg-green-50 hover:text-green-800"
               >
                 Anti-Wrinkle Injections
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="./fatdissolving"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-green-800 hover:border-green-800 hover:bg-green-50 hover:text-green-800"
               >
                 Fat Dissolving
               </Disclosure.Button>
                 <Disclosure.Button
                     as="a"
                     href="./packages"
-                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-green-800 hover:border-green-800 hover:bg-green-50 hover:text-green-800"
                 >
                     Packages
                 </Disclosure.Button>

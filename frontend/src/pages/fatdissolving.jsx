@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react"
 import { API, graphqlOperation } from 'aws-amplify'
 import { listProducts } from '../queries'
+import { useNavigate } from "react-router-dom"
+import { Storage } from "aws-amplify"
 
 export default function LipFiller() {
   const [products, setProducts] = useState([])
   const [imageUrl, setImageUrl] = useState([])
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -33,25 +37,28 @@ export default function LipFiller() {
   }, [])
   
 
-  const fetchImage = async (products) => {
-
-    try {
-      const imageData = await Storage.get(products.ImageSrc)
-setImageUrl(imageData)    }
-
-    catch (error) {
-      console.log("Error fetching image", error)
-    }
-
-  }
-
+ 
   useEffect(() => {
-    fetchImage(products)
+    products.forEach(product => fetchImage(product));
+  }, [products]);
+
+  console.log(products.id)
+  
+  const fetchImage = async (product) => {
+    try {
+      const imageData = await Storage.get(product.ImageSrc);
+      setImageUrl(prevState => ({
+        ...prevState,
+        [product.id]: imageData
+      }));
+    } catch (error) {
+      console.log("Error fetching image", error);
+    }
   }
 
-  , [products]
-  )
-
+  const handleProductClick = (product) => {
+    navigate('/locations', { state: { product } });
+  }
 
 
 
@@ -67,24 +74,23 @@ setImageUrl(imageData)    }
   </div>
 </div>
   
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+<div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <div key={product.id} onClick={() => handleProductClick(product)} className="group cursor-pointer">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2">
-                  <img
-                    src={imageUrl}
-                    alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
-                  />
+                <img
+  src={imageUrl[product.id]}
+  alt={product.imageAlt}
+  className="h-full w-full object-cover object-center group-hover:opacity-75"
+/>
                 </div>
-                <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
 
+                <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
                   <h3>{product.Name}</h3>
                   <p>£{product.Price}</p>
-                  
                 </div>
-                  <p>{product.Category}</p>
-              </a>
+                <p className="mt-1 text-sm italic text-gray-500">{product.description}</p>
+              </div>
             ))}
           </div>
         </div>
