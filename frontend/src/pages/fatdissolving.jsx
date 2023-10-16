@@ -63,7 +63,7 @@ export default function LipFiller() {
 
 
     return (
-      <div className="bg-white">
+      <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-green-100 to-emerald-100">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 id="products-heading" className="sr-only">
             Products

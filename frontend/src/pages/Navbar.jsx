@@ -1,12 +1,61 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Storage } from 'aws-amplify'
+import { useState } from 'react'
+import { Auth } from 'aws-amplify'
+import { useNavigate } from 'react-router-dom'
+
+
+
+
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Example() {
+
+  const Navigate = useNavigate()
+
+
+
+
+  // log out function
+
+
+  async function signOut() {
+    try {
+      await Auth.signOut();
+      Navigate('/')
+      window.location.reload();
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
+
+
+
+  // get video from S3
+  const [logo, setLogo] = useState(null)
+
+
+useEffect(() => {
+    Storage.get('Opulence.PNG')
+      .then(url => {
+        setLogo(url);
+        console.log(url)
+      })
+      .catch(err => console.error(err));
+  }, []);
+
+
+
+
+
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -29,7 +78,7 @@ export default function Example() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="Opulence.PNG"
+                    src={logo}
                     alt="Your Company"
                   />
                 </div>
@@ -77,6 +126,13 @@ export default function Example() {
                     >
                     Packages
                     </a>
+                    <a
+                    href="./login"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-green-800 hover:border-green-800 hover:text-green-800"
+                    >
+                    Login
+                    </a>
+
 
                 </div>
 
@@ -99,7 +155,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="Opulence.PNG"
+                        src={logo}
                         alt=""
                       />
                     </Menu.Button>
@@ -136,12 +192,12 @@ export default function Example() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <div onClick={signOut}
                             href="#"
                             className={classNames(active ? 'bg-green-100' : '', 'block px-4 py-2 text-sm text-green-800')}
                           >
                             Sign out
-                          </a>
+                          </div>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -202,6 +258,13 @@ export default function Example() {
                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-green-800 hover:border-green-800 hover:bg-green-50 hover:text-green-800"
                 >
                     Packages
+                </Disclosure.Button>
+                <Disclosure.Button
+                    as="a"
+                    href="./login"
+                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-green-800 hover:border-green-800 hover:bg-green-50 hover:text-green-800"
+                >
+                    Login
                 </Disclosure.Button>
             </div>
           </Disclosure.Panel>

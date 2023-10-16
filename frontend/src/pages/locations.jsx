@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { listLocations } from "../queries";
 import { useLocation, useNavigate } from "react-router-dom";
-import {CalendarDaysIcon, ClockIcon, HomeIcon} from "@heroicons/react/24/outline";
+import {CalendarDaysIcon, ClockIcon, HomeIcon, UserCircleIcon} from "@heroicons/react/24/outline";
 import Payments from "./payment";
 
 export default function Example() {
@@ -44,7 +44,7 @@ export default function Example() {
   }
 
   return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-green-100 to-emerald-100 shadow overflow-hidden sm:rounded-lg">
       <div
         className="bg-white px-6 py-24 sm:py-32 lg:px-8 bg-cover"
         style={{ backgroundImage: `url('https://media.giphy.com/media/aRcpxlaHW0ujZrSERQ/giphy.gif')` }}
@@ -76,6 +76,10 @@ export default function Example() {
                 <p className="truncate text-sm text-black">
                   <HomeIcon className="h-5 w-5 inline-block mr-1 text-gray-400" /> {/* Add an icon */}
                   {location.Location}
+                </p>
+                <p className="truncate text-sm text-black">
+                  <UserCircleIcon className="h-5 w-5 inline-block mr-1 text-gray-400" /> {/* Add an icon */}
+                  Kayleigh Stanley
                 </p>
               </a>
             </div>

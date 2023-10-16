@@ -1,11 +1,12 @@
 import React, { useState, Fragment, useEffect } from 'react';
 import Stripe from 'stripe';
 import { Popover, Transition } from '@headlessui/react';
-import { ChevronUpIcon } from '@heroicons/react/solid';
 import { ChevronUpDownIcon } from '@heroicons/react/24/outline';
 import { graphqlOperation } from 'aws-amplify';
 import { listProducts } from '../queries';
 import { API } from 'aws-amplify';
+
+
 
 
 
@@ -21,6 +22,8 @@ function CheckoutForm({ productId, location }) {
     const [cvc, setCvc] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [product, setProducts] = useState({});
+    const [imageUrl, setImageUrl] = useState({});
+
 
 useEffect(() => {
     const fetchProducts = async () => {
@@ -33,6 +36,13 @@ useEffect(() => {
     };
     fetchProducts();
 }, []);
+
+
+
+
+
+
+
 
 
 
@@ -86,7 +96,7 @@ useEffect(() => {
 
     return (
 
-    <div className="bg-white">
+    <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-stone-400 via-green-200 to-emerald-900">
       {/* Background color split screen for large screens */}
       <div className="fixed left-0 top-0 hidden h-full w-1/2 bg-white lg:block" aria-hidden="true" />
       <div className="fixed right-0 top-0 hidden h-full w-1/2 bg-gray-50 lg:block" aria-hidden="true" />
@@ -106,11 +116,7 @@ useEffect(() => {
             <ul role="list" className="divide-y divide-gray-200 text-sm font-medium text-gray-900">
                 {Object.values(product).map((product) => (
                     <li key={product.id} className="flex items-start space-x-4 py-6">
-                        <img
-                            src={product.ImageSrc}
-                            alt={product.imageAlt}
-                            className="h-20 w-20 flex-none rounded-md object-cover object-center"
-                        />
+                        
                         <div className="flex-auto space-y-1">
                             <h3>{product.Name}</h3>
                             <h3>{location.Time}</h3>
@@ -151,6 +157,7 @@ useEffect(() => {
                     <ChevronUpDownIcon className="h-5 w-5 text-gray-500" aria-hidden="true" />
                   </Popover.Button>
                 </div>
+                
               </div>
 
               <Transition.Root as={Fragment}>
@@ -198,10 +205,22 @@ useEffect(() => {
 
         <form onSubmit={handleSubmit} className="px-4 pb-36 pt-16 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
           <div className="mx-auto max-w-lg lg:max-w-none">
+            <button
+              type="button"
+              className="block w-full text-left border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
+            >
+              Back
+            </button>
+
             <section aria-labelledby="contact-info-heading">
               <h2 id="contact-info-heading" className="text-lg font-medium text-gray-900">
-                Contact information
+                Terms and Conditions
               </h2>
+              <p className="mt-1 text-sm text-gray-600">
+I Confirm that I am over the age of 18 and i am not Pregnant. By clicking continue you accept these conditions.              </p>
+
+
+
 
               <div className="mt-6">
                 <label htmlFor="email-address" className="block text-sm font-medium text-gray-700">

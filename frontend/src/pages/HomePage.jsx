@@ -82,7 +82,7 @@ export default function Example() {
   
 
   return (
-<div className="bg-gradient-to-b from-white to-white px-6 py-24 sm:py-32 lg:px-8 w-full">
+<div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-green-100 to-emerald-100 px-6 py-24 sm:py-32 lg:px-8 w-full">
   <div className="mx-auto">
   <video controls>
   {video && <source src={video} type="video/mp4" />}
