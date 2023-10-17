@@ -45,6 +45,7 @@ export default function LipFiller() {
       setImageUrl(prevState => ({
         ...prevState,
         [product.id]: imageData
+        
       }));
     } catch (error) {
       console.log("Error fetching image", error);

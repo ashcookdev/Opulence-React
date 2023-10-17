@@ -36,7 +36,7 @@ export default function LipFiller() {
     products.forEach(product => fetchImage(product));
   }, [products]);
 
-  console.log(products.id)
+  console.log(products)
   
   const fetchImage = async (product) => {
     try {
