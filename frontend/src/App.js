@@ -64,7 +64,7 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           {/* New authenticated routes */}
-          {isAdmin && <Route path="/bookings" element={withAuthenticator(BookingsPage)} />}
+          {isAdmin && <Route path="/bookings" element={<BookingsPage/>}/>}
           {isAdmin && <Route path='/dashboard' element= {<Dashboard/>} />}
           {isAdmin && <Route path="/editproducts" element={<Products/>} />} 
           {isAdmin && <Route path="/editproducts/add" element={<AddProducts />} /> }

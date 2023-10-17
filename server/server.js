@@ -4,6 +4,11 @@ const { resolve } = require("path");
 // Replace if using a different env file or config
 const env = require("dotenv").config({ path: "./.env" });
 
+const path = require('path');
+app.use(express.static(path.resolve(__dirname, process.env.STATIC_DIR)));
+
+
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-08-01",
 });

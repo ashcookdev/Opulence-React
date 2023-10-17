@@ -5,6 +5,7 @@ import CheckoutForm from "./Checkoutform";
 import { loadStripe } from "@stripe/stripe-js";
 import { API, graphqlOperation } from "aws-amplify";
 import { getProducts } from "../queries";
+import { useNavigate } from "react-router-dom";
 
 function Payment({ product, location}) {
 
@@ -18,6 +19,15 @@ function Payment({ product, location}) {
   const [checkbox, setCheckbox] = useState("");
   const [details, setDetails] = useState({});
   const [payment, setPayment] = useState(false);
+  const [back, setBack] = useState(false);
+
+  const navigate = useNavigate();
+
+  if (back === true) {
+  navigate("/");
+  }
+    
+  
 
 
   useEffect(() => {
@@ -84,9 +94,16 @@ setDetails(details);  };
       {/* Background color split screen for large screens */}
       <div className="fixed left-0 top-0 hidden h-full w-1/2 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-green-100 to-emerald-100 lg:block" aria-hidden="true" />
       <div className="fixed right-0 top-0 hidden h-full w-1/2 bg-emerald-900 lg:block" aria-hidden="true" />
+     
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 lg:pt-16">
+           
         <h1 className="sr-only">Checkout</h1>
+
+        <button onClick={()=> setBack(true)} type="button" className="rounded-md bg-indigo-50 px-3.5 py-2.5 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100"
+>
+        Back 
+</button>   
 
         <section
           aria-labelledby="summary-heading"
