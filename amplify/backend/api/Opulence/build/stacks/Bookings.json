@@ -43,13 +43,13 @@
     "referencetotransformerrootstackGraphQLAPI20497F53ApiId": {
       "Type": "String"
     },
+    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
+      "Type": "String"
+    },
     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
       "Type": "String"
     },
     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
-      "Type": "String"
-    },
-    "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction18D281E5FunctionId": {
       "Type": "String"
     },
     "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId": {
@@ -64,13 +64,7 @@
     "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationMutationcreateLocationinit0FunctionMutationcreateLocationinit0FunctionAppSyncFunction55B0D727FunctionId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationMutationcreateLocationauth0FunctionMutationcreateLocationauth0FunctionAppSyncFunction51E07057FunctionId": {
-      "Type": "String"
-    },
     "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationMutationupdateLocationinit0FunctionMutationupdateLocationinit0FunctionAppSyncFunction76096E44FunctionId": {
-      "Type": "String"
-    },
-    "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationSubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction49FCBCC6FunctionId": {
       "Type": "String"
     },
     "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationSubscriptionOnCreateLocationDataResolverFnSubscriptionOnCreateLocationDataResolverFnAppSyncFunction79CB7B5DFunctionId": {
@@ -376,6 +370,36 @@
         "BookingsIAMRole2410A2F9"
       ]
     },
+    "QuerygetBookingsauth0FunctionQuerygetBookingsauth0FunctionAppSyncFunction1EF9FDF9": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
+        },
+        "Name": "QuerygetBookingsauth0Function",
+        "FunctionVersion": "2018-05-29",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Query.getBookings.auth.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson({})"
+      }
+    },
     "QueryGetBookingsDataResolverFnQueryGetBookingsDataResolverFnAppSyncFunctionA0FA0A3A": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -439,7 +463,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction18D281E5FunctionId"
+              "Fn::GetAtt": [
+                "QuerygetBookingsauth0FunctionQuerygetBookingsauth0FunctionAppSyncFunction1EF9FDF9",
+                "FunctionId"
+              ]
             },
             {
               "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId"
@@ -550,7 +577,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction18D281E5FunctionId"
+              "Fn::GetAtt": [
+                "QuerygetBookingsauth0FunctionQuerygetBookingsauth0FunctionAppSyncFunction1EF9FDF9",
+                "FunctionId"
+              ]
             },
             {
               "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId"
@@ -596,6 +626,36 @@
           ]
         },
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+      }
+    },
+    "MutationcreateBookingsauth0FunctionMutationcreateBookingsauth0FunctionAppSyncFunction05129788": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
+        },
+        "Name": "MutationcreateBookingsauth0Function",
+        "FunctionVersion": "2018-05-29",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Mutation.createBookings.auth.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson({})"
       }
     },
     "MutationCreateBookingsDataResolverFnMutationCreateBookingsDataResolverFnAppSyncFunction11749D58": {
@@ -664,7 +724,10 @@
               "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationMutationcreateLocationinit0FunctionMutationcreateLocationinit0FunctionAppSyncFunction55B0D727FunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationMutationcreateLocationauth0FunctionMutationcreateLocationauth0FunctionAppSyncFunction51E07057FunctionId"
+              "Fn::GetAtt": [
+                "MutationcreateBookingsauth0FunctionMutationcreateBookingsauth0FunctionAppSyncFunction05129788",
+                "FunctionId"
+              ]
             },
             {
               "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId"
@@ -1045,6 +1108,36 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
+    "SubscriptiononCreateBookingsauth0FunctionSubscriptiononCreateBookingsauth0FunctionAppSyncFunctionDA4B2510": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
+        },
+        "Name": "SubscriptiononCreateBookingsauth0Function",
+        "FunctionVersion": "2018-05-29",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Subscription.onCreateBookings.auth.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson({})"
+      }
+    },
     "SubscriptiononCreateBookingsResolver": {
       "Type": "AWS::AppSync::Resolver",
       "Properties": {
@@ -1057,7 +1150,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationSubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction49FCBCC6FunctionId"
+              "Fn::GetAtt": [
+                "SubscriptiononCreateBookingsauth0FunctionSubscriptiononCreateBookingsauth0FunctionAppSyncFunctionDA4B2510",
+                "FunctionId"
+              ]
             },
             {
               "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId"
@@ -1110,7 +1206,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationSubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction49FCBCC6FunctionId"
+              "Fn::GetAtt": [
+                "SubscriptiononCreateBookingsauth0FunctionSubscriptiononCreateBookingsauth0FunctionAppSyncFunctionDA4B2510",
+                "FunctionId"
+              ]
             },
             {
               "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId"
@@ -1163,7 +1262,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationSubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction49FCBCC6FunctionId"
+              "Fn::GetAtt": [
+                "SubscriptiononCreateBookingsauth0FunctionSubscriptiononCreateBookingsauth0FunctionAppSyncFunctionDA4B2510",
+                "FunctionId"
+              ]
             },
             {
               "Ref": "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId"
@@ -1178,6 +1280,101 @@
             "",
             [
               "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onDeleteBookings\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+              {
+                "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+              },
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackauthRoleNameFB872D50Ref"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackunauthRoleName49F3C1FERef"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.toJson({})"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+      }
+    },
+    "BookingsOwnerDataResolverFnBookingsOwnerDataResolverFnAppSyncFunctionE578E8C9": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
+        },
+        "Name": "BookingsOwnerDataResolverFn",
+        "FunctionVersion": "2018-05-29",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Bookings.owner.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Bookings.owner.res.vtl"
+            ]
+          ]
+        }
+      }
+    },
+    "BookingsownerResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "FieldName": "owner",
+        "TypeName": "Bookings",
+        "Kind": "PIPELINE",
+        "PipelineConfig": {
+          "Functions": [
+            {
+              "Fn::GetAtt": [
+                "BookingsOwnerDataResolverFnBookingsOwnerDataResolverFnAppSyncFunctionE578E8C9",
+                "FunctionId"
+              ]
+            }
+          ]
+        },
+        "RequestMappingTemplate": {
+          "Fn::Join": [
+            "",
+            [
+              "$util.qr($ctx.stash.put(\"typeName\", \"Bookings\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"owner\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },

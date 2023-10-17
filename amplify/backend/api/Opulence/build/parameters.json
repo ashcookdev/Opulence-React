@@ -2,6 +2,13 @@
     "AppSyncApiName": "Opulence",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authOpulence",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "AuthModeLastUpdated": "2023-10-17T02:26:40.566Z",
     "S3DeploymentBucket": "amplify-opulence-staging-32438-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/1a9bbba3681a6c0afa84c61d70fb875d5b750687"
+    "S3DeploymentRootKey": "amplify-appsync-files/aa8056917fc26ab8abe2dd6e84949e206dd93286"
 }

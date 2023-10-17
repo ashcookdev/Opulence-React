@@ -8,7 +8,7 @@ type Location @aws_iam @aws_api_key {
   updatedAt: AWSDateTime!
 }
 
-type Bookings @aws_iam @aws_api_key {
+type Bookings @aws_iam @aws_cognito_user_pools @aws_api_key {
   id: ID!
   Name: String
   Email: String
@@ -17,8 +17,10 @@ type Bookings @aws_iam @aws_api_key {
   Paid: String
   Price: String
   Treatment: String
+  Telephone: String
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
+  owner: String
 }
 
 type Products @aws_iam @aws_api_key {
@@ -202,8 +204,8 @@ input ModelLocationFilterInput {
 type Query {
   getLocation(id: ID!): Location @aws_api_key @aws_iam
   listLocations(filter: ModelLocationFilterInput, limit: Int, nextToken: String): ModelLocationConnection @aws_api_key @aws_iam
-  getBookings(id: ID!): Bookings @aws_api_key @aws_iam
-  listBookings(filter: ModelBookingsFilterInput, limit: Int, nextToken: String): ModelBookingsConnection @aws_api_key @aws_iam
+  getBookings(id: ID!): Bookings @aws_iam @aws_cognito_user_pools
+  listBookings(filter: ModelBookingsFilterInput, limit: Int, nextToken: String): ModelBookingsConnection @aws_iam @aws_cognito_user_pools
   getProducts(id: ID!): Products @aws_api_key @aws_iam
   listProducts(filter: ModelProductsFilterInput, limit: Int, nextToken: String): ModelProductsConnection @aws_api_key @aws_iam
 }
@@ -242,9 +244,9 @@ type Mutation {
   createLocation(input: CreateLocationInput!, condition: ModelLocationConditionInput): Location @aws_api_key @aws_iam
   updateLocation(input: UpdateLocationInput!, condition: ModelLocationConditionInput): Location @aws_api_key @aws_iam
   deleteLocation(input: DeleteLocationInput!, condition: ModelLocationConditionInput): Location @aws_api_key @aws_iam
-  createBookings(input: CreateBookingsInput!, condition: ModelBookingsConditionInput): Bookings @aws_api_key @aws_iam
-  updateBookings(input: UpdateBookingsInput!, condition: ModelBookingsConditionInput): Bookings @aws_api_key @aws_iam
-  deleteBookings(input: DeleteBookingsInput!, condition: ModelBookingsConditionInput): Bookings @aws_api_key @aws_iam
+  createBookings(input: CreateBookingsInput!, condition: ModelBookingsConditionInput): Bookings @aws_api_key @aws_iam @aws_cognito_user_pools
+  updateBookings(input: UpdateBookingsInput!, condition: ModelBookingsConditionInput): Bookings @aws_api_key @aws_iam @aws_cognito_user_pools
+  deleteBookings(input: DeleteBookingsInput!, condition: ModelBookingsConditionInput): Bookings @aws_iam @aws_cognito_user_pools
   createProducts(input: CreateProductsInput!, condition: ModelProductsConditionInput): Products @aws_api_key @aws_iam
   updateProducts(input: UpdateProductsInput!, condition: ModelProductsConditionInput): Products @aws_api_key @aws_iam
   deleteProducts(input: DeleteProductsInput!, condition: ModelProductsConditionInput): Products @aws_api_key @aws_iam
@@ -264,15 +266,15 @@ type Subscription {
   onCreateLocation(filter: ModelSubscriptionLocationFilterInput): Location @aws_subscribe(mutations: ["createLocation"]) @aws_api_key @aws_iam
   onUpdateLocation(filter: ModelSubscriptionLocationFilterInput): Location @aws_subscribe(mutations: ["updateLocation"]) @aws_api_key @aws_iam
   onDeleteLocation(filter: ModelSubscriptionLocationFilterInput): Location @aws_subscribe(mutations: ["deleteLocation"]) @aws_api_key @aws_iam
-  onCreateBookings(filter: ModelSubscriptionBookingsFilterInput): Bookings @aws_subscribe(mutations: ["createBookings"]) @aws_api_key @aws_iam
-  onUpdateBookings(filter: ModelSubscriptionBookingsFilterInput): Bookings @aws_subscribe(mutations: ["updateBookings"]) @aws_api_key @aws_iam
-  onDeleteBookings(filter: ModelSubscriptionBookingsFilterInput): Bookings @aws_subscribe(mutations: ["deleteBookings"]) @aws_api_key @aws_iam
+  onCreateBookings(filter: ModelSubscriptionBookingsFilterInput, owner: String): Bookings @aws_subscribe(mutations: ["createBookings"]) @aws_iam @aws_cognito_user_pools
+  onUpdateBookings(filter: ModelSubscriptionBookingsFilterInput, owner: String): Bookings @aws_subscribe(mutations: ["updateBookings"]) @aws_iam @aws_cognito_user_pools
+  onDeleteBookings(filter: ModelSubscriptionBookingsFilterInput, owner: String): Bookings @aws_subscribe(mutations: ["deleteBookings"]) @aws_iam @aws_cognito_user_pools
   onCreateProducts(filter: ModelSubscriptionProductsFilterInput): Products @aws_subscribe(mutations: ["createProducts"]) @aws_api_key @aws_iam
   onUpdateProducts(filter: ModelSubscriptionProductsFilterInput): Products @aws_subscribe(mutations: ["updateProducts"]) @aws_api_key @aws_iam
   onDeleteProducts(filter: ModelSubscriptionProductsFilterInput): Products @aws_subscribe(mutations: ["deleteProducts"]) @aws_api_key @aws_iam
 }
 
-type ModelBookingsConnection @aws_api_key @aws_iam {
+type ModelBookingsConnection @aws_iam @aws_cognito_user_pools {
   items: [Bookings]!
   nextToken: String
 }
@@ -286,6 +288,7 @@ input ModelBookingsFilterInput {
   Paid: ModelStringInput
   Price: ModelStringInput
   Treatment: ModelStringInput
+  Telephone: ModelStringInput
   and: [ModelBookingsFilterInput]
   or: [ModelBookingsFilterInput]
   not: ModelBookingsFilterInput
@@ -299,6 +302,7 @@ input ModelBookingsConditionInput {
   Paid: ModelStringInput
   Price: ModelStringInput
   Treatment: ModelStringInput
+  Telephone: ModelStringInput
   and: [ModelBookingsConditionInput]
   or: [ModelBookingsConditionInput]
   not: ModelBookingsConditionInput
@@ -313,6 +317,7 @@ input CreateBookingsInput {
   Paid: String
   Price: String
   Treatment: String
+  Telephone: String
 }
 
 input UpdateBookingsInput {
@@ -324,6 +329,7 @@ input UpdateBookingsInput {
   Paid: String
   Price: String
   Treatment: String
+  Telephone: String
 }
 
 input DeleteBookingsInput {
@@ -339,6 +345,7 @@ input ModelSubscriptionBookingsFilterInput {
   Paid: ModelSubscriptionStringInput
   Price: ModelSubscriptionStringInput
   Treatment: ModelSubscriptionStringInput
+  Telephone: ModelSubscriptionStringInput
   and: [ModelSubscriptionBookingsFilterInput]
   or: [ModelSubscriptionBookingsFilterInput]
 }

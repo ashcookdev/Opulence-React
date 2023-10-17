@@ -30,6 +30,7 @@ export default function BookingsCreateForm(props) {
     Paid: "",
     Price: "",
     Treatment: "",
+    Telephone: "",
   };
   const [Name, setName] = React.useState(initialValues.Name);
   const [Email, setEmail] = React.useState(initialValues.Email);
@@ -38,6 +39,7 @@ export default function BookingsCreateForm(props) {
   const [Paid, setPaid] = React.useState(initialValues.Paid);
   const [Price, setPrice] = React.useState(initialValues.Price);
   const [Treatment, setTreatment] = React.useState(initialValues.Treatment);
+  const [Telephone, setTelephone] = React.useState(initialValues.Telephone);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.Name);
@@ -47,6 +49,7 @@ export default function BookingsCreateForm(props) {
     setPaid(initialValues.Paid);
     setPrice(initialValues.Price);
     setTreatment(initialValues.Treatment);
+    setTelephone(initialValues.Telephone);
     setErrors({});
   };
   const validations = {
@@ -57,6 +60,7 @@ export default function BookingsCreateForm(props) {
     Paid: [],
     Price: [],
     Treatment: [],
+    Telephone: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -91,6 +95,7 @@ export default function BookingsCreateForm(props) {
           Paid,
           Price,
           Treatment,
+          Telephone,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -160,6 +165,7 @@ export default function BookingsCreateForm(props) {
               Paid,
               Price,
               Treatment,
+              Telephone,
             };
             const result = onChange(modelFields);
             value = result?.Name ?? value;
@@ -190,6 +196,7 @@ export default function BookingsCreateForm(props) {
               Paid,
               Price,
               Treatment,
+              Telephone,
             };
             const result = onChange(modelFields);
             value = result?.Email ?? value;
@@ -220,6 +227,7 @@ export default function BookingsCreateForm(props) {
               Paid,
               Price,
               Treatment,
+              Telephone,
             };
             const result = onChange(modelFields);
             value = result?.Location ?? value;
@@ -250,6 +258,7 @@ export default function BookingsCreateForm(props) {
               Paid,
               Price,
               Treatment,
+              Telephone,
             };
             const result = onChange(modelFields);
             value = result?.Time ?? value;
@@ -280,6 +289,7 @@ export default function BookingsCreateForm(props) {
               Paid: value,
               Price,
               Treatment,
+              Telephone,
             };
             const result = onChange(modelFields);
             value = result?.Paid ?? value;
@@ -310,6 +320,7 @@ export default function BookingsCreateForm(props) {
               Paid,
               Price: value,
               Treatment,
+              Telephone,
             };
             const result = onChange(modelFields);
             value = result?.Price ?? value;
@@ -340,6 +351,7 @@ export default function BookingsCreateForm(props) {
               Paid,
               Price,
               Treatment: value,
+              Telephone,
             };
             const result = onChange(modelFields);
             value = result?.Treatment ?? value;
@@ -353,6 +365,37 @@ export default function BookingsCreateForm(props) {
         errorMessage={errors.Treatment?.errorMessage}
         hasError={errors.Treatment?.hasError}
         {...getOverrideProps(overrides, "Treatment")}
+      ></TextField>
+      <TextField
+        label="Telephone"
+        isRequired={false}
+        isReadOnly={false}
+        value={Telephone}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              Name,
+              Email,
+              Location,
+              Time,
+              Paid,
+              Price,
+              Treatment,
+              Telephone: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Telephone ?? value;
+          }
+          if (errors.Telephone?.hasError) {
+            runValidationTasks("Telephone", value);
+          }
+          setTelephone(value);
+        }}
+        onBlur={() => runValidationTasks("Telephone", Telephone)}
+        errorMessage={errors.Telephone?.errorMessage}
+        hasError={errors.Telephone?.hasError}
+        {...getOverrideProps(overrides, "Telephone")}
       ></TextField>
       <Flex
         justifyContent="space-between"

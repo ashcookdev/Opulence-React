@@ -14,6 +14,9 @@
         "unauthRoleName": {
             "Type": "String"
         },
+        "AuthCognitoUserPoolId": {
+            "Type": "String"
+        },
         "DynamoDBModelTableReadIOPS": {
             "Type": "Number",
             "Default": 5,
@@ -82,6 +85,17 @@
                 "AdditionalAuthenticationProviders": [
                     {
                         "AuthenticationType": "AWS_IAM"
+                    },
+                    {
+                        "AuthenticationType": "AMAZON_COGNITO_USER_POOLS",
+                        "UserPoolConfig": {
+                            "AwsRegion": {
+                                "Ref": "AWS::Region"
+                            },
+                            "UserPoolId": {
+                                "Ref": "AuthCognitoUserPoolId"
+                            }
+                        }
                     }
                 ]
             }
@@ -123,7 +137,7 @@
                     ]
                 },
                 "Description": "api key description",
-                "Expires": 1699914939
+                "Expires": 1700102511
             }
         },
         "GraphQLAPINONEDS95A13CF0": {
@@ -437,17 +451,17 @@
                             "ApiId"
                         ]
                     },
+                    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
+                        "Fn::GetAtt": [
+                            "GraphQLAPINONEDS95A13CF0",
+                            "Name"
+                        ]
+                    },
                     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
                         "Ref": "S3DeploymentBucket"
                     },
                     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
                         "Ref": "S3DeploymentRootKey"
-                    },
-                    "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction18D281E5FunctionId": {
-                        "Fn::GetAtt": [
-                            "Location",
-                            "Outputs.transformerrootstackLocationQuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction18D281E5FunctionId"
-                        ]
                     },
                     "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId": {
                         "Fn::GetAtt": [
@@ -467,22 +481,10 @@
                             "Outputs.transformerrootstackLocationMutationcreateLocationinit0FunctionMutationcreateLocationinit0FunctionAppSyncFunction55B0D727FunctionId"
                         ]
                     },
-                    "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationMutationcreateLocationauth0FunctionMutationcreateLocationauth0FunctionAppSyncFunction51E07057FunctionId": {
-                        "Fn::GetAtt": [
-                            "Location",
-                            "Outputs.transformerrootstackLocationMutationcreateLocationauth0FunctionMutationcreateLocationauth0FunctionAppSyncFunction51E07057FunctionId"
-                        ]
-                    },
                     "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationMutationupdateLocationinit0FunctionMutationupdateLocationinit0FunctionAppSyncFunction76096E44FunctionId": {
                         "Fn::GetAtt": [
                             "Location",
                             "Outputs.transformerrootstackLocationMutationupdateLocationinit0FunctionMutationupdateLocationinit0FunctionAppSyncFunction76096E44FunctionId"
-                        ]
-                    },
-                    "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationSubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction49FCBCC6FunctionId": {
-                        "Fn::GetAtt": [
-                            "Location",
-                            "Outputs.transformerrootstackLocationSubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction49FCBCC6FunctionId"
                         ]
                     },
                     "referencetotransformerrootstackLocationNestedStackLocationNestedStackResource9BA3A37BOutputstransformerrootstackLocationSubscriptionOnCreateLocationDataResolverFnSubscriptionOnCreateLocationDataResolverFnAppSyncFunction79CB7B5DFunctionId": {

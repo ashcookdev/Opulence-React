@@ -20,6 +20,7 @@ export declare type BookingsUpdateFormInputValues = {
     Paid?: string;
     Price?: string;
     Treatment?: string;
+    Telephone?: string;
 };
 export declare type BookingsUpdateFormValidationValues = {
     Name?: ValidationFunction<string>;
@@ -29,6 +30,7 @@ export declare type BookingsUpdateFormValidationValues = {
     Paid?: ValidationFunction<string>;
     Price?: ValidationFunction<string>;
     Treatment?: ValidationFunction<string>;
+    Telephone?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type BookingsUpdateFormOverridesProps = {
@@ -40,6 +42,7 @@ export declare type BookingsUpdateFormOverridesProps = {
     Paid?: PrimitiveOverrideProps<TextFieldProps>;
     Price?: PrimitiveOverrideProps<TextFieldProps>;
     Treatment?: PrimitiveOverrideProps<TextFieldProps>;
+    Telephone?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type BookingsUpdateFormProps = React.PropsWithChildren<{
     overrides?: BookingsUpdateFormOverridesProps | undefined | null;

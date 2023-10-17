@@ -66,6 +66,7 @@ export const createBookings = /* GraphQL */ `
       Paid
       Price
       Treatment
+      Telephone
       createdAt
       updatedAt
       __typename
@@ -86,6 +87,7 @@ export const updateBookings = /* GraphQL */ `
       Paid
       Price
       Treatment
+        Telephone
       createdAt
       updatedAt
       __typename
@@ -106,6 +108,7 @@ export const deleteBookings = /* GraphQL */ `
       Paid
       Price
       Treatment
+      Telephone
       createdAt
       updatedAt
       __typename

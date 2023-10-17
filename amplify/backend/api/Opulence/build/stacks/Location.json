@@ -1533,14 +1533,6 @@
         }
       }
     },
-    "transformerrootstackLocationQuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction18D281E5FunctionId": {
-      "Value": {
-        "Fn::GetAtt": [
-          "QuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction8E6B0BF0",
-          "FunctionId"
-        ]
-      }
-    },
     "transformerrootstackLocationQuerygetLocationpostAuth0FunctionQuerygetLocationpostAuth0FunctionAppSyncFunctionB1D96408FunctionId": {
       "Value": {
         "Fn::GetAtt": [
@@ -1557,14 +1549,6 @@
         ]
       }
     },
-    "transformerrootstackLocationMutationcreateLocationauth0FunctionMutationcreateLocationauth0FunctionAppSyncFunction51E07057FunctionId": {
-      "Value": {
-        "Fn::GetAtt": [
-          "MutationcreateLocationauth0FunctionMutationcreateLocationauth0FunctionAppSyncFunction061555D9",
-          "FunctionId"
-        ]
-      }
-    },
     "transformerrootstackLocationMutationupdateLocationinit0FunctionMutationupdateLocationinit0FunctionAppSyncFunction76096E44FunctionId": {
       "Value": {
         "Fn::GetAtt": [
@@ -1573,18 +1557,34 @@
         ]
       }
     },
-    "transformerrootstackLocationSubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction49FCBCC6FunctionId": {
-      "Value": {
-        "Fn::GetAtt": [
-          "SubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction4228B4A9",
-          "FunctionId"
-        ]
-      }
-    },
     "transformerrootstackLocationSubscriptionOnCreateLocationDataResolverFnSubscriptionOnCreateLocationDataResolverFnAppSyncFunction79CB7B5DFunctionId": {
       "Value": {
         "Fn::GetAtt": [
           "SubscriptionOnCreateLocationDataResolverFnSubscriptionOnCreateLocationDataResolverFnAppSyncFunction4C717E14",
+          "FunctionId"
+        ]
+      }
+    },
+    "transformerrootstackLocationQuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction18D281E5FunctionId": {
+      "Value": {
+        "Fn::GetAtt": [
+          "QuerygetLocationauth0FunctionQuerygetLocationauth0FunctionAppSyncFunction8E6B0BF0",
+          "FunctionId"
+        ]
+      }
+    },
+    "transformerrootstackLocationMutationcreateLocationauth0FunctionMutationcreateLocationauth0FunctionAppSyncFunction51E07057FunctionId": {
+      "Value": {
+        "Fn::GetAtt": [
+          "MutationcreateLocationauth0FunctionMutationcreateLocationauth0FunctionAppSyncFunction061555D9",
+          "FunctionId"
+        ]
+      }
+    },
+    "transformerrootstackLocationSubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction49FCBCC6FunctionId": {
+      "Value": {
+        "Fn::GetAtt": [
+          "SubscriptiononCreateLocationauth0FunctionSubscriptiononCreateLocationauth0FunctionAppSyncFunction4228B4A9",
           "FunctionId"
         ]
       }

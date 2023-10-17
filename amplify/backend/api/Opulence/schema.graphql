@@ -6,7 +6,7 @@ type Location @model @auth(rules: [{allow: public}]) {
   Available: Boolean
 }
 
-type Bookings @model @auth(rules: [{allow: public}]) {
+type Bookings @model @auth(rules: [{allow: public, operations: [create, update]}, {allow: owner}, {allow: groups, groups: ["admin"], operations: [read, create, update, delete]}]) {
   id: ID!
   Name: String
   Email: String
@@ -15,6 +15,7 @@ type Bookings @model @auth(rules: [{allow: public}]) {
   Paid: String
   Price: String
   Treatment: String
+  Telephone: String
 }
 
 type Products @model @auth(rules: [{allow: public}]) {
